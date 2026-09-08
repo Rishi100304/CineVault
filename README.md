@@ -1,16 +1,65 @@
-# React + Vite
+# CineVault 🎬
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+CineVault is a movie discovery and watchlist application built with React and the TMDB API.
 
-Currently, two official plugins are available:
+Users can search for movies, browse popular movies, add movies to a personal watchlist, create their own movies, and switch between light and dark themes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Features
 
-## React Compiler
+- 🔎 Search movies using the TMDB API
+- 🎬 Browse popular movies
+- 📄 Paginated movie results
+- ⏱️ Debounced movie search
+- ⭐ Movie ratings and genres
+- 📋 Add and remove movies from a watchlist
+- 💾 Persist watchlist and custom movies using LocalStorage
+- ➕ Add custom movies with form validation
+- 🌙 Light and dark mode
+- ⚠️ Loading, error, and empty states
+- 📱 Responsive UI built with Tailwind CSS
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- React
+- Vite
+- Tailwind CSS
+- JavaScript
+- TMDB API
+- Context API
+- useReducer
+- Custom React Hooks
+- LocalStorage
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🧠 React Concepts Used
+
+This project was built to practice and apply core React concepts, including:
+
+- `useState`
+- `useEffect`
+- `useContext`
+- `useReducer`
+- `useRef`
+- Custom Hooks
+- Context API
+- Controlled Forms
+- Conditional Rendering
+- Props and Component Composition
+- API Data Fetching
+- Debouncing
+- State Management
+- LocalStorage Persistence
+
+## 🔑 TMDB API Setup
+
+CineVault uses the TMDB API to retrieve movie data.
+
+### 1. Get a TMDB API key
+
+Create an account on TMDB and obtain an API key.
+
+### 2. Create an environment file
+
+Create a `.env` file in the root directory:
+
+```env
+VITE_TMDB_API_KEY=your_api_key_here

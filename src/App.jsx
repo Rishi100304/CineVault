@@ -142,6 +142,17 @@ function App() {
         <Section title="Add a Movie" darkMode={darkMode}>
           <AddMovieForm setMovieList={setMovieList} darkMode={darkMode} />
         </Section>
+        <div className="flex justify-center">
+        <div
+            className={`mt-4 inline-block px-6 py-2 rounded-full  ${
+              darkMode ? "bg-gray-800" : "bg-white"
+            } shadow-md`}
+          >
+            <span className="font-semibold">
+              Built with Bun + Vite + React + Tailwind CSS❤️
+            </span>
+          </div>
+          </div>
       </div>
     </div>
   );
