@@ -92,15 +92,13 @@ src/
 ├── App.jsx
 ├── main.jsx
 └── index.css
-📸 Screenshots
 
-Add screenshots of the application here.
 
-🎯 Purpose
+## 🎯 Purpose
 
 CineVault was built as a hands-on React project to consolidate concepts such as state management, Context API, reducers, custom hooks, API integration, forms, and persistent client-side data.
 
-📌 Future Improvements
+## 📌 Future Improvements
 
 Possible improvements include:
 
@@ -112,6 +110,6 @@ Personalized watchlists
 TypeScript
 Automated testing
 
-📄 License
+## 📄 License
 
 This project is for educational and portfolio purposes.
