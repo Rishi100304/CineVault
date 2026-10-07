@@ -61,17 +61,17 @@ Create an account on TMDB and obtain an API key.
 
 Create a `.env` file in the root directory:
 
-```env
 VITE_TMDB_API_KEY=your_api_key_here
 
-3. Install dependencies
+### 3. Install dependencies
 npm install or bun install
-4. Start the development server
+### 4. Start the development server
 npm run dev or bun run dev
 
 The application will be available at the local development URL provided by Vite.
 
 📂 Project Structure
+```env
 src/
 ├── components/
 │   ├── AddMovieForm.jsx
