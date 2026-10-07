@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { WatchListContext } from "../context/WatchlistContext";
+import { WatchListContext } from "../context/WatchListContext.tsx";
 import type { Movie } from "../types/movie";
 
 interface MovieCardProps {
@@ -39,14 +39,14 @@ function MovieCard({ movie, darkMode }: MovieCardProps) {
 
         {isInWatchList(movie.id) ? (
           <button
-            className="bg-red-600 text-white py-1 px-4 rounded-sm shadow-md"
+            className="bg-red-600 text-white py-1 px-4 rounded-sm shadow-md cursor-pointer hover:bg-red-700"
             onClick={() => removeFromList(movie.id)}
           >
             Remove from WatchList
           </button>
         ) : (
           <button
-            className="bg-green-600 text-white py-1 px-4 rounded-sm shadow-md"
+            className="bg-green-600 text-white py-1 px-4 rounded-sm shadow-md cursor-pointer hover:bg-green-700"
             onClick={() => addToList(movie)}
           >
             Add to WatchList

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { WatchListContext } from "../context/WatchlistContext";
+import { WatchListContext } from "../context/WatchListContext";
 
 interface WatchListProps {
   darkMode: boolean;
@@ -40,7 +40,7 @@ function WatchList({ darkMode }: WatchListProps) {
                 <span className="font-semibold">Rating:</span> {item.rating}⭐
               </h2>
               <button
-                className="bg-red-600 text-white py-1 px-4 rounded-sm shadow-md"
+                className="bg-red-600 text-white py-1 px-4 rounded-sm shadow-md cursor-pointer hover:bg-red-700"
                 onClick={() => removeFromList(item.id)}
               >
                 Remove From Watch List
@@ -52,7 +52,7 @@ function WatchList({ darkMode }: WatchListProps) {
       {state.items.length > 0 && (
         <div className="flex justify-center mt-4">
           <button
-            className="text-center bg-amber-600 text-white py-1 px-4 rounded-sm shadow-md"
+            className="text-center bg-amber-600 text-white py-1 px-4 rounded-sm shadow-md cursor-pointer hover:bg-amber-700"
             onClick={clearWatchList}
           >
             Clear Watch List

@@ -89,7 +89,7 @@ function App() {
               className={`
           absolute top-1 left-1 w-6 h-6 rounded-full bg-white
           transition-transform duration-300 flex items-center justify-center
-          ${darkMode ? "transform translate-x-8" : ""}
+          ${darkMode ? "transform translate-x-8" : ""} cursor-pointer
         `}
             >
               {darkMode ? "🌙" : "☀️"}
@@ -117,7 +117,7 @@ function App() {
               <div className="flex flex-row justify-center mb-8 font-semibold ">
                 <div className="text-lg mx-4">
                   <button
-                    className="bg-blue-500 text-white px-3 py-1 rounded-sm shadow-md"
+                    className="bg-blue-500 text-white px-3 py-1 rounded-sm shadow-md cursor-pointer hover:bg-blue-600"
                     disabled={page === 1}
                     onClick={() => setPage((prev) => prev - 1)}
                   >
@@ -130,7 +130,7 @@ function App() {
                 </span>
                 <div className="text-lg mx-4">
                   <button
-                    className="bg-blue-500 text-white px-3 py-1 rounded-sm shadow-md"
+                    className="bg-blue-500 text-white px-3 py-1 rounded-sm shadow-md cursor-pointer hover:bg-blue-600"
                     disabled={Boolean(data?.total_pages && page >= data.total_pages)}
                     onClick={() => setPage((prev) => prev + 1)}
                   >

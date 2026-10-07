@@ -7,16 +7,16 @@ interface MovieFormPropsInterface {
 }
 interface FormData {
   title: string;
-  year: number;
+  year: string;
   genre: string;
-  rating: number;
+  rating: string;
 }
 function AddMovieForm({ setMovieList, darkMode }: MovieFormPropsInterface) {
   const [formData, setFormData] = useState<FormData>({
     title: "",
-    year: 0,
+    year: "",
     genre: "",
-    rating: 0,
+    rating: "",
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -32,8 +32,8 @@ function AddMovieForm({ setMovieList, darkMode }: MovieFormPropsInterface) {
     if (!formData.year) {
       newErrors.year = "Year is required";
     } else if (
-      formData.year < 1888 ||
-      formData.year > new Date().getFullYear()
+      Number(formData.year) < 1888 ||
+      Number(formData.year) > new Date().getFullYear()
     ) {
       newErrors.year = "Enter a valid year";
     }
@@ -44,7 +44,7 @@ function AddMovieForm({ setMovieList, darkMode }: MovieFormPropsInterface) {
 
     if (!formData.rating) {
       newErrors.rating = "Rating is required";
-    } else if (formData.rating < 0 || formData.rating > 10) {
+    } else if (Number(formData.rating) < 0 || Number(formData.rating) > 10) {
       newErrors.rating = "Rating must be between 0 and 10";
     }
 
@@ -56,16 +56,16 @@ function AddMovieForm({ setMovieList, darkMode }: MovieFormPropsInterface) {
         {
           ...formData,
           id: Date.now(),
-          year: Number(formData.year),
+          year: formData.year,
           rating: Number(formData.rating),
           poster: null
         },
       ]);
       setFormData({
         title: "",
-        year: 0,
+        year: "",
         genre: "",
-        rating: 0,
+        rating: "",
       });
 
       setErrors({});
@@ -76,7 +76,7 @@ function AddMovieForm({ setMovieList, darkMode }: MovieFormPropsInterface) {
     <div>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div
-          className={`flex flex-col justify-center p-6 items-center gap-6 my-8 text-xl rounded-lg shadow-md ${darkMode ? "bg-gray-700 text-white" : "bg-white text-gray-800"}`}
+          className={`flex flex-col justify-center p-6 items-center gap-6 my-8 text-xl rounded-lg shadow-md ${darkMode ? "bg-gray-700 text-white" : "bg-zinc-200 text-gray-800"} `}
         >
           <div className="pt-4">
             <label className="mx-3">Title: </label>
@@ -112,7 +112,7 @@ function AddMovieForm({ setMovieList, darkMode }: MovieFormPropsInterface) {
               onChange={(e) =>
                 setFormData({
                   ...formData,
-                  year: Number(e.target.value),
+                  year: e.target.value,
                 })
               }
               min={1888}
@@ -146,7 +146,7 @@ function AddMovieForm({ setMovieList, darkMode }: MovieFormPropsInterface) {
           <div className="mx-3">
             <label className="mx-3">Rating: </label>
             <input
-              type="text"
+              type="number"
               className={`w-90 shadow-md border rounded-md ${
                 darkMode
                   ? "bg-gray-800 text-white border-gray-600"
@@ -156,7 +156,7 @@ function AddMovieForm({ setMovieList, darkMode }: MovieFormPropsInterface) {
               onChange={(e) =>
                 setFormData({
                   ...formData,
-                  rating: Number(e.target.value),
+                  rating: e.target.value,
                 })
               }
               min={0}
@@ -167,7 +167,7 @@ function AddMovieForm({ setMovieList, darkMode }: MovieFormPropsInterface) {
             )}
           </div>
           <button
-            className="bg-blue-500 px-4 py-2 rounded-md shadow-md"
+            className="bg-blue-500 text-lg text-white px-4 py-1 rounded-md shadow-md cursor-pointer hover:bg-blue-600"
             type="submit"
           >
             Submit
