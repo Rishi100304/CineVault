@@ -70,7 +70,7 @@ npm run dev or bun run dev
 
 The application will be available at the local development URL provided by Vite.
 
-📂 Project Structure
+## 📂 Project Structure
 ```env
 src/
 ├── components/
