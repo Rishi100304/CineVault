@@ -1,0 +1,25 @@
+name: CineVault CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/bun@v1
+        with:
+            bun-version: latest
+
+      - name: Install Dependencies
+        run: bun install 
+        env: 
+            VITE_TMDB_API_KEY: ${{ secrets.VITE_TMDB_API_KEY }}
