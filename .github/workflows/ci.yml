@@ -21,5 +21,11 @@ jobs:
 
       - name: Install Dependencies
         run: bun install 
+
+      - name: Run Tests
+        run: bun test
+
+      - name: Run Build
+        run: bun build
         env: 
             VITE_TMDB_API_KEY: ${{ secrets.VITE_TMDB_API_KEY }}

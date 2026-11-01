@@ -13,7 +13,8 @@ interface WatchListContextTypes {
     isInWatchList: (id: number) => boolean;
 }
 
-function reducer(state: StateType, action: WatchListAction): StateType {
+// eslint-disable-next-line react-refresh/only-export-components
+export function reducer(state: StateType, action: WatchListAction): StateType {
   switch (action.type) {
     case "ADD_MOVIE":
       return {
@@ -37,8 +38,25 @@ function reducer(state: StateType, action: WatchListAction): StateType {
 }
 const WatchListContext = createContext<WatchListContextTypes | undefined>(undefined);
 
+// Safe initialization function
+const getInitialWatchlist = () => {
+  // Check if window / localStorage exists safely
+  if (typeof globalThis.localStorage !== "undefined") {
+    const saved = localStorage.getItem("watchlist");
+    if (saved) {
+      try {
+        return JSON.parse(saved);
+      } catch (e) {
+        console.error("Failed to parse watchlist:", e);
+      }
+    }
+  }
+  return [];
+};
+
+// Use the function instead of a direct top-level localStorage call
 const initialState: StateType = {
-  items: JSON.parse(localStorage.getItem("watchlist") || "[]"),
+  items: getInitialWatchlist(),
 };
 
 export function WatchListProvider({ children }: PropsWithChildren) {
